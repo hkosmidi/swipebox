@@ -1,0 +1,9 @@
+{
+  "name": "hkosmidi-swipebox",
+  "version": "1.0.0",
+  "description": "My version of swipebox",
+  "main": "src/js/jquery.swipwbox.js",
+  "repository": "https://github.com/hkosmidi/swipebox.git",
+  "author": "Harris Kosmidis <hkosmidi@gmail.com>",
+  "license": "MIT"
+}
