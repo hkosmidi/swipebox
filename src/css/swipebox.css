@@ -113,6 +113,7 @@ html.swipebox-html.swipebox-touch {
 
 #swipebox-top-bar {
   top: -50px;
+  overflow:hidden;
 }
 #swipebox-top-bar.visible-bars {
   -webkit-transform: translate3d(0, 50px, 0);
@@ -120,10 +121,16 @@ html.swipebox-html.swipebox-touch {
 }
 
 #swipebox-title {
-  display: block;
-  width: 100%;
+  float:left;
+  width: 80%;
   text-align: center;
 }
+
+ #swipebox-afterTitle {
+   float:left;
+   padding-top:10px;
+   text-align: right;
+ }
 
 #swipebox-prev,
 #swipebox-next,

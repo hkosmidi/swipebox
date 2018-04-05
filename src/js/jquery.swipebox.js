@@ -43,6 +43,7 @@
 						<div id="swipebox-slider"></div>\
 						<div id="swipebox-top-bar">\
 							<div id="swipebox-title"></div>\
+							<div id="swipebox-afterTitle"></div>\
 						</div>\
 						<div id="swipebox-bottom-bar">\
 							<div id="swipebox-arrows">\
@@ -114,7 +115,8 @@
 					$elem.each( function() {
 
 						var title = null,
-							href = null;
+							href = null,
+							id = null;
 
 						if ( $( this ).attr( 'title' ) ) {
 							title = $( this ).attr( 'title' );
@@ -125,9 +127,14 @@
 							href = $( this ).attr( 'href' );
 						}
 
+                        if ( $( this ).data( 'id' ) ) {
+                            id = $( this ).data( 'id' );
+                        }
+
 						elements.push( {
 							href: href,
-							title: title
+							title: title,
+							id: id
 						} );
 					} );
 
@@ -689,14 +696,14 @@
 						slide.html( this );
 
 						if ( plugin.settings.afterMedia ) {
-							plugin.settings.afterMedia( index );
+							plugin.settings.afterMedia( index, elements );
 						}
 					} );
 				} else {
 					slide.html( $this.getVideo( src ) );
 
 					if ( plugin.settings.afterMedia ) {
-						plugin.settings.afterMedia( index );
+						plugin.settings.afterMedia( index, elements );
 					}
 				}
 
@@ -851,7 +858,7 @@
 					$this.setSlide( index );
 					$this.preloadMedia( index+1 );
 					if ( plugin.settings.nextSlide ) {
-						plugin.settings.nextSlide(index);
+						plugin.settings.nextSlide(index, elements);
 					}
 				} else {
 
@@ -863,10 +870,10 @@
 						$this.setSlide( index );
 						$this.preloadMedia( index + 1 );
 						if ( plugin.settings.nextSlide ) {
-							plugin.settings.nextSlide(index);
+							plugin.settings.nextSlide(index, elements);
 						}
 					} else {
-						$( '#swipebox-overlay' ).addClass( 'rightSpring' );
+						$( '#swipebox-overlay' ).addClass('rightSpring');
 						setTimeout( function() {
 							$( '#swipebox-overlay' ).removeClass( 'rightSpring' );
 						}, 500 );
@@ -887,7 +894,7 @@
 					this.setSlide( index );
 					this.preloadMedia( index-1 );
 					if ( plugin.settings.prevSlide ) {
-						plugin.settings.prevSlide(index);
+						plugin.settings.prevSlide(index, elements);
 					}
 				} else {
 					$( '#swipebox-overlay' ).addClass( 'leftSpring' );
