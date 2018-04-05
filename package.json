@@ -1,6 +1,6 @@
 {
   "name": "hkosmidi-swipebox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My version of swipebox",
   "main": "src/js/jquery.swipwbox.js",
   "repository": "https://github.com/hkosmidi/swipebox.git",
